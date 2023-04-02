@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../services/local-storage.service';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -12,9 +13,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AcessoGuard implements CanActivate {
-  canAccessHome: boolean = false;
-
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private LocalStorageService: LocalStorageService
+  ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -23,8 +25,17 @@ export class AcessoGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.canAccessHome) return true;
-    this.router.navigate(['sem-acesso']);
-    return false;
+    if (this.LocalStorageService.verifyAuth('acesso')) {
+      return true;
+    } else {
+      this.router.navigate(['sem-acesso']);
+      return false;
+    }
   }
 }
+// if (this.LocalStorageService.getStorage('acesso') != undefined) {
+//   return true;
+// } else {
+//
+//   return false;
+// }
