@@ -25,7 +25,7 @@ export class AcessoGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.LocalStorageService.verifyAuth('acesso')) {
+    if (this.LocalStorageService.verifyAuth('access')) {
       return true;
     } else {
       this.router.navigate(['sem-acesso']);
