@@ -1,12 +1,28 @@
-<form>
-    <div>
-        <input type="text" placeholder="Digite seu login..">
-    </div>
-    <div>
-        <input type="password" placeholder="Digite sua senha..">
-    </div>
-    <div>
-        <input type="password" placeholder="Confirme a senha..">
-    </div>
-    <button (click)="login($event)" type="button">Login</button>
-</form>
+<div class="row my-5 mx-0">
+    <section class="left col-6">
+        <div class="w-75 h-100 mx-auto"></div>
+    </section>
+    <section class="right col-6 my-auto">
+        <div class="image mx-auto mt-5">
+            <div></div>
+        </div>
+        <div>
+            <form class="w-75 mx-auto">
+                <div class="mb-3">
+                    <label for="user" class="form-label">Usuário:</label>
+                    <input type="text" class="form-control" id="user" placeholder="Digite seu login..">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha..">
+                </div>
+                <div class="mb-3">
+                    <label for="confirm-pass" class="form-label">Confirmação de senha:</label>
+                    <input type="password" class="form-control" id="confirm-pass" placeholder="Confirme a senha..">
+                </div>
+                <button (click)="login($event)" type="button" class="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    
+    </section>
+</div>

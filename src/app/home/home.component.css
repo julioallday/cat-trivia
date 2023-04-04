@@ -1,4 +1,15 @@
 #img {
   max-width: 600px;
+  max-height: 400px;
+}
+section div{
+  max-width: 600px;
+}
+button{
+  min-width: 120px;
+}
+img{
+  min-width: 600px;
   min-height: 400px;
+  margin: 8px;
 }

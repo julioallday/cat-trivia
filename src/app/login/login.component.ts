@@ -23,9 +23,7 @@ export class LoginComponent {
 
     if (passwordsMatch && regexTest) {
       this.localStorageService.SetStorage('access', 'userAuthenticated');
-
       setTimeout(() => this.router.navigate(['home']), 1000);
-
       console.log(`Usuário ${user} logado com sucesso`);
     } else if (passwordsMatch && !regexTest) {
       console.log(

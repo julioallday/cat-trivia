@@ -1,8 +1,15 @@
-<section>
-    <div>
-        <img src="../../assets/guard-image.jpg" alt="imagem">
+<section class="container">
+    <div class="row">
+        <div class="d-flex flex-column">
+            <div class="image mx-auto">
+                <img class="m-auto" src="../../assets/guard-image.jpg" alt="imagem">
+            </div>
+            <div class="text text-center">
+                <h3>Você não deveria estar aqui</h3>
+                <p>Você não possui permissão para acessar essa página.. faça login e tente novamente</p>
+            </div>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, debitis?</p>
+            <button class="w-25 align-self-center rounded btn btn-danger" [routerLink]="['/login']">Voltar</button>
+        </div>
     </div>
-    <button [routerLink]="['/login']" >Voltar</button>
 </section>
