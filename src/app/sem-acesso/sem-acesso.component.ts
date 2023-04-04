@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-sem-acesso',
   templateUrl: './sem-acesso.component.html',
-  styleUrls: ['./sem-acesso.component.scss']
+  styleUrls: ['./sem-acesso.component.css'],
 })
-export class SemAcessoComponent {
-
-}
+export class SemAcessoComponent {}

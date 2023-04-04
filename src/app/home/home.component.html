@@ -1,12 +1,12 @@
-<section>
-    <div>
-        <h1>{{ fact }}</h1>
+<section class="row justify-content-center my-3 gap-2">
+    <div class="w-75 text-center">
+        <h3>{{ fact }}</h3>
     </div>
-    <div>
-        <img [src]="imagemUrl" alt="">
+    <div id="img" class="bg-light d-flex justify-content-center rounded-2">
+        <img  [src]="imagemUrl">
     </div>
-    <div>
-        <button (click)="imagem()">Imagem</button>
-        <button (click)="gif()">GIF</button>
+    <div class="d-flex justify-content-around w-75 my-2">
+        <button class="btn btn-success w-25" (click)="imagem()">Imagem</button>
+        <button class="btn btn-success w-25" (click)="gif()">GIF</button>
     </div>
 </section>

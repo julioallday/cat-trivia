@@ -4,11 +4,11 @@ import { FactsService } from '../shared/services/facts.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   fact!: string;
-  imagemUrl!: string;
+  imagemUrl: string = "https://cataas.com/cat/cute/says/hello?width=300";
 
   constructor(private factsService: FactsService) {}
   ngOnInit() {
@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit {
     });
   }
   imagem() {
-    this.imagemUrl = 'https://cataas.com/cat';
+    this.imagemUrl = 'https://cataas.com/cat?width=300';
   }
   gif() {
-    this.imagemUrl = 'https://cataas.com/cat/gif';
+    this.imagemUrl = 'https://cataas.com/cat/gif?width=300';
   }
 }

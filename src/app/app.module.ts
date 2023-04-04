@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SemAcessoComponent } from './sem-acesso/sem-acesso.component';
+import { MillisecondsToSecondsPipe } from './shared/pipes/milliseconds-to-seconds.pipe';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SemAcessoComponent } from './sem-acesso/sem-acesso.component';
     LoginComponent,
     HomeComponent,
     SemAcessoComponent,
+    MillisecondsToSecondsPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
