@@ -1,30 +1,41 @@
 import { LocalStorageService } from './../shared/services/local-storage.service';
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  data = {
+    login: '',
+    password: '',
+    passwordConfirmation: '',
+  };
   constructor(
     private localStorageService: LocalStorageService,
     private router: Router
   ) {}
-  login(event: any) {
+  ngOnInit(): void {}
+
+  login(form: any) {
     const passwordRegex =
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=[\]{};':"\|,.<>/?]).{8,}$/;
-    const user = event.target.parentNode[0].value;
-    const password = event.target.parentNode[1].value;
-    const passwordConfirmation = event.target.parentNode[2].value;
+    const user = form.controls.user.value;
+    const password = form.controls.password.value;
+    const passwordConfirmation = form.controls.confirmPassword.value;
     const passwordsMatch = password === passwordConfirmation;
     const regexTest = passwordRegex.test(password);
 
+    this.verifyPasswordMatch(passwordsMatch, regexTest);
+  }
+  verifyPasswordMatch(passwordsMatch: boolean, regexTest: boolean) {
     if (passwordsMatch && regexTest) {
       this.localStorageService.SetStorage('access', 'userAuthenticated');
       setTimeout(() => this.router.navigate(['home']), 1000);
-      console.log(`Usuário ${user} logado com sucesso`);
+      console.log(`Usuário logado com sucesso`);
     } else if (passwordsMatch && !regexTest) {
       console.log(
         `A senha precisa ter ao menos 1 letra maiuscula, 1 minúscula, 1 caracter especial e 1 numero de 0 a 9, tente novamente`

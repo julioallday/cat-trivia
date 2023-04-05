@@ -36,4 +36,3 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-// /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@!#$%^&*()/\\])/

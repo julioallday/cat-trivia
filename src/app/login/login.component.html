@@ -7,22 +7,21 @@
             <div></div>
         </div>
         <div>
-            <form class="w-75 mx-auto">
+            <form #form="ngForm" (ngSubmit)="login(form)" class="w-75 mx-auto">
                 <div class="mb-3">
                     <label for="user" class="form-label">Usuário:</label>
-                    <input type="text" class="form-control" id="user" placeholder="Digite seu login..">
+                    <input type="text" class="form-control" id="user" name="user" [(ngModel)]="data.login" placeholder="Digite seu login.." required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha..">
+                    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="data.password" placeholder="Digite sua senha.." required>
                 </div>
                 <div class="mb-3">
                     <label for="confirm-pass" class="form-label">Confirmação de senha:</label>
-                    <input type="password" class="form-control" id="confirm-pass" placeholder="Confirme a senha..">
+                    <input type="password" class="form-control" id="confirm-pass" name="confirmPassword" [(ngModel)]="data.passwordConfirmation" placeholder="Confirme a senha.." required>
                 </div>
-                <button (click)="login($event)" type="button" class="btn btn-primary w-100">Login</button>
+                <button type="submit" class="btn btn-primary w-100"  [disabled]="!form.valid" >Login</button>
             </form>
         </div>
-    
     </section>
 </div>

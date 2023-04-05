@@ -8,15 +8,13 @@ import { FactsService } from '../shared/services/facts.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  facts!: fact;
+  fact: any;
   imagemUrl: string = 'https://cataas.com/cat/cute/says/hello?width=300';
 
   constructor(private factsService: FactsService) {}
   ngOnInit() {
     this.factsService.getRandomFact().subscribe((fact) => {
-      this.facts = fact;
-      console.log(this.facts);
-      
+      this.fact = fact;
     });
   }
   imagem() {

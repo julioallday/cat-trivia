@@ -1,7 +1,7 @@
-<div class="container " *ngIf="facts.text ? true : false">
+<div class="container " *ngIf="fact ? true : false">
     <section class="row justify-content-center my-3 gap-2">
         <div  class=" w-75 text-center text-break fst-italic">
-            <h3>"{{ facts.text }}"</h3>
+            <h3>"{{ fact.text }}"</h3>
         </div>
         <div id="img" class="bg-light d-flex justify-content-center rounded-2 w-75">
             <img [src]="imagemUrl">
