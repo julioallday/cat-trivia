@@ -1,5 +1,5 @@
 import { LocalStorageService } from './../shared/services/local-storage.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -20,12 +20,12 @@ export class LoginComponent implements OnInit {
   ) {}
   ngOnInit(): void {}
 
-  login(form: any) {
+  login() {
     const passwordRegex =
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=[\]{};':"\|,.<>/?]).{8,}$/;
-    const user = form.controls.user.value;
-    const password = form.controls.password.value;
-    const passwordConfirmation = form.controls.confirmPassword.value;
+    const user = this.data.login;
+    const password = this.data.password;
+    const passwordConfirmation = this.data.passwordConfirmation;
     const passwordsMatch = password === passwordConfirmation;
     const regexTest = passwordRegex.test(password);
 
