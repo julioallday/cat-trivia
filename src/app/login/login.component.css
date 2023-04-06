@@ -1,3 +1,5 @@
+.right{
+}
 .image {
   width: 130px;
   height: 130px;
@@ -8,8 +10,13 @@
   background-repeat: no-repeat;
 }
 .left div {
-    border-radius: 50px;
+  height: 34rem;
+  border-radius: 50px;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("https://source.unsplash.com/800x800?cat-family");
+}
+input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
 }

@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     password: '',
     passwordConfirmation: '',
   };
+  canShowFeedback = false;
   constructor(
     private localStorageService: LocalStorageService,
     private router: Router
@@ -34,8 +35,9 @@ export class LoginComponent implements OnInit {
   verifyPasswordMatch(passwordsMatch: boolean, regexTest: boolean) {
     if (passwordsMatch && regexTest) {
       this.localStorageService.SetStorage('access', 'userAuthenticated');
-      setTimeout(() => this.router.navigate(['home']), 1000);
+      setTimeout(() => this.router.navigate(['home']), 2000);
       console.log(`Usuário logado com sucesso`);
+      this.showFeedback(true);
     } else if (passwordsMatch && !regexTest) {
       console.log(
         `A senha precisa ter ao menos 1 letra maiuscula, 1 minúscula, 1 caracter especial e 1 numero de 0 a 9, tente novamente`
@@ -43,5 +45,12 @@ export class LoginComponent implements OnInit {
     } else if (!passwordsMatch && regexTest) {
       console.log('Confirme a senha e tente novamente.');
     }
+  }
+  showFeedback(bool: boolean) {
+    if (bool) {
+      this.canShowFeedback = true;
+      return this.canShowFeedback;
+    }
+    return this.canShowFeedback;
   }
 }
